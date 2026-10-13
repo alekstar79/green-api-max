@@ -1,0 +1,1 @@
+export type { ChatContact } from "./model/types";
