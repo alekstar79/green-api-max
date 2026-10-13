@@ -1,0 +1,40 @@
+.field {
+  display: grid;
+  gap: 8px;
+}
+
+.label {
+  color: var(--label-text);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.input {
+  width: 100%;
+  min-height: 46px;
+  padding: 0 13px;
+  border: 1px solid var(--input-border);
+  border-radius: var(--radius-control);
+  background: var(--surface);
+  color: var(--input-text);
+  font-size: 15px;
+}
+
+.input:focus {
+  border-color: var(--accent);
+}
+
+.hint,
+.error {
+  margin: 0;
+  font-size: var(--font-size-small);
+  line-height: 1.45;
+}
+
+.hint {
+  color: var(--text-muted);
+}
+
+.error {
+  color: var(--danger);
+}

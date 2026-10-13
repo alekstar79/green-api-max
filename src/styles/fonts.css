@@ -1,0 +1,7 @@
+@import "@fontsource-variable/manrope";
+
+:root {
+  font-family: var(--font-sans);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+}

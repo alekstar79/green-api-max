@@ -1,0 +1,127 @@
+.screen {
+  display: grid;
+  min-height: 100vh;
+  place-items: center;
+  padding: 32px 20px;
+  background: var(--app-bg);
+  color: var(--text);
+}
+
+.panel {
+  width: min(100%, 420px);
+  padding: 34px 36px 30px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-panel);
+  background: var(--surface);
+  box-shadow: 0 16px 48px rgb(24 45 61 / 8%);
+}
+
+.wordmark {
+  color: var(--brand);
+  font-size: 21px;
+  font-weight: 800;
+}
+
+.eyebrow {
+  margin: 0 0 var(--space-2);
+  color: var(--brand-eyebrow);
+  font-size: 11px;
+  font-weight: 800;
+}
+
+.panel > .eyebrow {
+  margin-top: 28px;
+}
+
+.title {
+  margin: 0;
+  color: var(--heading-text);
+  font-size: 25px;
+  line-height: 1.25;
+}
+
+.copy {
+  margin: 10px 0 25px;
+  color: var(--text-muted);
+  font-size: var(--font-size-body);
+  line-height: 1.55;
+}
+
+.form {
+  display: grid;
+  gap: 10px;
+}
+
+.form label {
+  margin-top: 5px;
+  color: var(--label-text);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.form input {
+  width: 100%;
+  min-height: 46px;
+  padding: 0 13px;
+  border: 1px solid var(--input-border);
+  border-radius: var(--radius-control);
+  background: var(--surface);
+  color: var(--input-text);
+  font-size: 15px;
+}
+
+.form input:focus {
+  border-color: var(--accent);
+}
+
+.formError {
+  margin: 0;
+  padding: 9px 11px;
+  border-radius: 6px;
+  background: var(--inline-error-bg);
+  color: var(--danger);
+  font-size: var(--font-size-small);
+  line-height: 1.45;
+}
+
+.primaryButton {
+  display: inline-flex;
+  min-height: 44px;
+  align-items: center;
+  justify-content: center;
+  padding: 0 18px;
+  border: 1px solid transparent;
+  border-radius: var(--radius-control);
+  background: var(--accent);
+  color: var(--accent-contrast);
+  cursor: pointer;
+  font-size: var(--font-size-body);
+  font-weight: 700;
+  transition: background-color 120ms ease;
+}
+
+.primaryButton:hover:not(:disabled) {
+  background: var(--accent-hover);
+}
+
+.primaryButton:disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
+}
+
+.submitButton {
+  margin-top: 15px;
+}
+
+.footnote {
+  margin: 20px 0 0;
+  color: var(--text-muted);
+  font-size: var(--font-size-small);
+  line-height: 1.5;
+}
+
+@media (max-width: 380px) {
+  .panel {
+    padding: 27px 22px 24px;
+  }
+}
