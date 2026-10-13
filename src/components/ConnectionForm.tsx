@@ -1,0 +1,77 @@
+import { useState, type FormEvent } from "react";
+import type { Credentials } from "../lib/api/greenApi";
+
+interface ConnectionFormProps {
+  onConnect: (credentials: Credentials) => void;
+}
+
+export function ConnectionForm({ onConnect }: ConnectionFormProps) {
+  const [idInstance, setIdInstance] = useState("");
+  const [apiTokenInstance, setApiTokenInstance] = useState("");
+  const [error, setError] = useState("");
+
+  function handleSubmit(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    const instance = idInstance.trim();
+    const token = apiTokenInstance.trim();
+    if (!instance || !token) {
+      setError("Заполните оба поля.");
+      return;
+    }
+    if (!/^\d+$/.test(instance)) {
+      setError("ID инстанса должен содержать только цифры.");
+      return;
+    }
+    setError("");
+    onConnect({ idInstance: instance, apiTokenInstance: token });
+  }
+
+  return (
+    <main className="connection-screen">
+      <section className="connection-panel" aria-labelledby="connection-title">
+        <div className="wordmark" aria-label="MAX">MAX</div>
+        <p className="eyebrow">GREEN-API</p>
+        <h1 id="connection-title">Подключение к MAX</h1>
+        <p className="connection-copy">
+          Введите данные инстанса, чтобы начать переписку.
+        </p>
+        <form id="connect" className="connection-form" onSubmit={handleSubmit}>
+          <label htmlFor="id-instance">ID инстанса</label>
+          <input
+            id="id-instance"
+            name="idInstance"
+            autoComplete="off"
+            required
+            value={idInstance}
+            aria-invalid={Boolean(error)}
+            aria-describedby={error ? "connection-error" : undefined}
+            onChange={(event) => {
+              setIdInstance(event.target.value);
+              setError("");
+            }}
+          />
+          <label htmlFor="api-token">Токен API</label>
+          <input
+            id="api-token"
+            name="apiTokenInstance"
+            type="password"
+            autoComplete="off"
+            required
+            value={apiTokenInstance}
+            aria-invalid={Boolean(error)}
+            aria-describedby={error ? "connection-error" : undefined}
+            onChange={(event) => {
+              setApiTokenInstance(event.target.value);
+              setError("");
+            }}
+          />
+          {error && <p className="form-error" id="connection-error" role="alert">{error}</p>}
+          <button className="primary-button connection-submit" type="submit">
+            Подключиться
+          </button>
+        </form>
+        <p className="form-footnote">Учетные данные останутся только в этой вкладке.</p>
+      </section>
+    </main>
+  );
+}
