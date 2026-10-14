@@ -59,6 +59,31 @@ npm run build
 npm run preview
 ```
 
+## Сборка и деплой
+
+Два режима сборки:
+
+Локальная (base `/`):
+
+```sh
+npm run build
+npm run preview
+```
+
+Preview: http://localhost:4173/
+
+Для GitHub Pages (base `/green-api-max/`):
+
+```sh
+npm run build:pages
+npm run preview:pages
+```
+
+Preview: http://localhost:4173/green-api-max/
+
+Деплой: содержимое `dist/` копируется в подпапку `green-api-max/` репозитория `alekstar79.github.io`, затем выполняется `git push`.
+Живой сервис: https://alekstar79.github.io/green-api-max/
+
 ## Ограничения
 
 - История хранится в памяти вкладки и не загружается из журнала GREEN-API.

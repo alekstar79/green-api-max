@@ -23,9 +23,11 @@
     "url": "https://github.com/alekstar79/green-api-max/issues"
   },
   "scripts": {
-    "dev": "vite --host",
+    "dev": "vite",
     "build": "tsc --noEmit && vite build",
+    "build:pages": "tsc --noEmit && VITE_BASE=/green-api-max/ vite build",
     "preview": "vite preview",
+    "preview:pages": "vite preview --base=/green-api-max/",
     "lint": "eslint .",
     "test": "vitest run",
     "typecheck": "tsc --noEmit"
