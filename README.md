@@ -90,3 +90,7 @@ Preview: http://localhost:4173/green-api-max/
 - В одном окне открыт один диалог.
 - Отображаются только входящие текстовые уведомления; прочие типы подтверждаются и не показываются.
 - Ответ `SendMessage` трактуется как принятие API, а не гарантия доставки.
+
+## License
+
+This project is released under the MIT License. See [LICENSE](LICENSE).
