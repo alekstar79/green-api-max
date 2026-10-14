@@ -8,7 +8,21 @@
 - GREEN-API HTTP API
 - Vitest и React Testing Library
 
-## Требования
+## Архитектура
+
+Проект построен по методологии Feature-Sliced Design:
+
+- `app/` — корневая композиция и провайдеры
+- `entities/` — бизнес-сущности (чат, сообщение, credentials)
+- `features/` — пользовательские сценарии (подключение, создание чата, отправка, получение, тема)
+- `widgets/` — композитные блоки UI (chat-workspace)
+- `shared/` — переиспользуемое (API-клиент, утилиты, базовые компоненты)
+
+Стилизация — CSS Modules с design-токенами в CSS-переменных.
+Состояние — локальные хуки + 3 контекста (chat / composer / dialog).
+Тесты — 51 тест на Vitest + React Testing Library.
+
+## Перед запуском
 
 - Node.js 24 или совместимая актуальная версия
 - npm 11
@@ -33,7 +47,7 @@ Vite покажет локальный адрес приложения. Введ
 
 ## Настройка получения сообщений
 
-Для HTTP API GREEN-API у инстанса должен быть пустой `webhookUrl` и включен `incomingWebhook`. Подробности и поля методов перечислены в [API integration catalog](docs/api-integration.md).
+Для HTTP API GREEN-API у инстанса должен быть пустой `webhookUrl` и включен `incomingWebhook`.
 
 ## Команды
 
@@ -51,29 +65,3 @@ npm run preview
 - В одном окне открыт один диалог.
 - Отображаются только входящие текстовые уведомления; прочие типы подтверждаются и не показываются.
 - Ответ `SendMessage` трактуется как принятие API, а не гарантия доставки.
-- Полный end-to-end цикл проверен вручную: отправка через SendMessage доставляется в MAX, ответ от второго аккаунта приходит через ReceiveNotification, подтверждение через DeleteNotification возвращает result=true.
-- Веб-версия MAX для сверки активного экрана требует авторизации; визуальное совпадение активного чата не подтверждено.
-- `.env.local` задан для локального кластера; universal fallback CORS/TLS в этом окружении не подтвержден.
-
-## Архитектура и проверяемость
-
-```text
-src/
-  app/              composition root and application orchestration
-  widgets/          chat workspace and message timeline
-  features/         connection, chat creation, messaging, polling, theme
-  entities/         credentials, chat, message, and notification models
-  shared/           GREEN-API client, config, utilities, and UI primitives
-tests/              tests mirrored by architectural layer
-```
-
-- [Требования](docs/requirements.md)
-- [Сценарии](docs/scenarios.md)
-- [Модель данных](docs/data-model.md)
-- [Матрица traceability](docs/traceability.md)
-- [Допущения и риски](docs/assumptions-and-risks.md)
-- [Source Register](docs/source-register.md)
-- [Architecture decisions](docs/architecture-decisions.md)
-- [Design rationale](docs/design-rationale.md)
-
-Папка проекта не инициализирована как Git repository; remote, GitHub и deployment намеренно не создавались.
