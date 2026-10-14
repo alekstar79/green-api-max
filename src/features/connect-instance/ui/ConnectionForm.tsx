@@ -71,7 +71,6 @@ export function ConnectionForm({ onConnect }: ConnectionFormProps) {
             Подключиться
           </button>
         </form>
-        <p className={styles.footnote}>Учетные данные останутся только в этой вкладке.</p>
       </section>
     </main>
   );

@@ -113,13 +113,6 @@
   margin-top: 15px;
 }
 
-.footnote {
-  margin: 20px 0 0;
-  color: var(--text-muted);
-  font-size: var(--font-size-small);
-  line-height: 1.5;
-}
-
 @media (max-width: 380px) {
   .panel {
     padding: 27px 22px 24px;

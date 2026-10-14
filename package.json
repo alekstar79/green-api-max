@@ -1,12 +1,31 @@
 {
-  "name": "green-api-max-chat",
+  "name": "@alekstar79/green-api-max",
+  "description": "React client for text messaging in MAX via GREEN-API",
+  "author": "Aleksey Tarasenko <alekstar79@yandex.ru>",
   "version": "1.0.0",
-  "private": true,
+  "license": "MIT",
   "type": "module",
+  "private": false,
+  "keywords": [
+    "green-api",
+    "max",
+    "messenger",
+    "react",
+    "typescript",
+    "vite"
+  ],
+  "homepage": "https://github.com/alekstar79/green-api-max#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alekstar79/green-api-max.git"
+  },
+  "bugs": {
+    "url": "https://github.com/alekstar79/green-api-max/issues"
+  },
   "scripts": {
-    "dev": "vite --host 0.0.0.0",
+    "dev": "vite --host",
     "build": "tsc --noEmit && vite build",
-    "preview": "vite preview --host 0.0.0.0",
+    "preview": "vite preview",
     "lint": "eslint .",
     "test": "vitest run",
     "typecheck": "tsc --noEmit"
@@ -34,5 +53,8 @@
     "typescript-eslint": "^8.71.2",
     "vite": "^8.3.4",
     "vitest": "^5.0.4"
+  },
+  "engines": {
+    "node": ">=20.19.0"
   }
 }
