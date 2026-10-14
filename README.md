@@ -1,6 +1,28 @@
 # MAX Text Chat via GREEN-API
 
+[![React](https://img.shields.io/badge/React-19-%2361DAFB?style=flat&logo=react&logoColor=black)](https://react.dev)
+[![TypeScript](https://img.shields.io/badge/TypeScript-6-%233178C6?style=flat&logo=typescript&logoColor=white)](https://www.typescriptlang.org)
+[![Vite](https://img.shields.io/badge/Vite-8-%23646CFF?style=flat&logo=vite&logoColor=white)](https://vitejs.dev)
+[![Vitest](https://img.shields.io/badge/Vitest-5-%236E9F18?style=flat&logo=vitest&logoColor=white)](https://vitest.dev)
+[![CSS Modules](https://img.shields.io/badge/CSS_Modules-%23000000?style=flat&logo=cssmodules&logoColor=white)](https://github.com/css-modules/css-modules)
+[![Feature-Sliced Design](https://img.shields.io/badge/Feature--Sliced_Design-%23F26B5E?style=flat)](https://feature-sliced.design)
+
 Минимальный React-интерфейс для отправки и получения текстовых сообщений в MAX через GREEN-API.
+
+[**Живое демо**](https://alekstar79.github.io/green-api-max/) · [**Презентация**](https://alekstar79.github.io/green-api-max-presentation/)
+
+<!-- TOC -->
+* [MAX Text Chat via GREEN-API](#max-text-chat-via-green-api)
+  * [Технологии](#технологии)
+  * [Архитектура](#архитектура)
+  * [Перед запуском](#перед-запуском)
+  * [Локальный запуск](#локальный-запуск)
+  * [Настройка API host](#настройка-api-host)
+  * [Поведение и ограничения](#поведение-и-ограничения)
+  * [Команды](#команды)
+  * [Сборка и деплой](#сборка-и-деплой)
+  * [License](#license)
+<!-- TOC -->
 
 ## Технологии
 
