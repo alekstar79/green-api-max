@@ -4,9 +4,15 @@
 
 1. **Требования и анализ:** выполнено в этом документном наборе; требования связаны со сценариями, данными, интерфейсами и acceptance criteria.
 2. **Основа проекта и интеграция:** завершено. React 19 + TypeScript; `VITE_API_URL` с universal fallback; typed CheckAccount, SendMessage, ReceiveNotification и DeleteNotification.
-3. **UI и состояния:** завершено. Подключение, пустой чат, создание диалога, история текста, ошибки, mobile layout и обе темы; antislop применялся DURING.
+3. **UI и состояния:** завершено. Подключение, пустой чат, создание диалога, история текста, ошибки, mobile layout и обе темы проверены по критериям приемки.
 4. **Автотесты и quality gates:** 36 unit/component tests passed; `tsc --noEmit`, lint и build проходят.
-5. **Живые проверки и запуск:** CORS preflight для host `.env.local` passed; учетные данные не выводились. Живой SendMessage требует явно указанного тестового получателя.
+5. **Живые проверки и запуск:**
+   - `getStateInstance`: `authorized` — проверено.
+   - `CheckAccount`: реальный запрос, `chatId` получен — проверено.
+   - `SendMessage`: доставка в MAX — проверено.
+   - `ReceiveNotification`: входящее событие от второго аккаунта получено — проверено.
+   - `DeleteNotification`: подтверждение очереди (`result: true`) — проверено.
+   - Живой E2E: пройден.
 6. **Передача:** README и API catalog добавлены; GitHub/deploy не создаются, папка остается без Git и remote по указанию владельца.
 
 ## Критерии перехода

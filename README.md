@@ -51,6 +51,7 @@ npm run preview
 - В одном окне открыт один диалог.
 - Отображаются только входящие текстовые уведомления; прочие типы подтверждаются и не показываются.
 - Ответ `SendMessage` трактуется как принятие API, а не гарантия доставки.
+- Полный end-to-end цикл проверен вручную: отправка через SendMessage доставляется в MAX, ответ от второго аккаунта приходит через ReceiveNotification, подтверждение через DeleteNotification возвращает result=true.
 - Веб-версия MAX для сверки активного экрана требует авторизации; визуальное совпадение активного чата не подтверждено.
 - `.env.local` задан для локального кластера; universal fallback CORS/TLS в этом окружении не подтвержден.
 
@@ -58,12 +59,12 @@ npm run preview
 
 ```text
 src/
-	components/       ConnectionForm, chat workspace, message history, dialogs
-	lib/api/          typed GREEN-API client and mocked API tests
-	lib/phone.ts      phone formatting and validation
-	styles/           light/dark responsive tokens and layout
-	test/             React Testing Library setup
-	types/            chat and message models
+  app/              composition root and application orchestration
+  widgets/          chat workspace and message timeline
+  features/         connection, chat creation, messaging, polling, theme
+  entities/         credentials, chat, message, and notification models
+  shared/           GREEN-API client, config, utilities, and UI primitives
+tests/              tests mirrored by architectural layer
 ```
 
 - [Требования](docs/requirements.md)
@@ -72,7 +73,7 @@ src/
 - [Матрица traceability](docs/traceability.md)
 - [Допущения и риски](docs/assumptions-and-risks.md)
 - [Source Register](docs/source-register.md)
+- [Architecture decisions](docs/architecture-decisions.md)
 - [Design rationale](docs/design-rationale.md)
-- [Журнал эффективности](docs/efficiency-log.md)
 
 Папка проекта не инициализирована как Git repository; remote, GitHub и deployment намеренно не создавались.
